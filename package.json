@@ -1,5 +1,5 @@
 {
-  "name": "react-cli",
+  "name": "react-draggable",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "@shepijcanwu/graphics": "^1.1.5",
+    "@shepijcanwu/graphics": "^1.2.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "core-js": "^3.20.3",

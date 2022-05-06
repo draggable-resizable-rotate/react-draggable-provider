@@ -1,6 +1,4 @@
-import { getElementDocumentRect } from './../Graphics/docPositionCalculate';
-import { getRelativePoint } from './../Graphics/positionCalculate';
-import { Matrix } from '@shepijcanwu/graphics';
+import Graphics, { Matrix, getRelativePoint, getElementDocumentRect } from '@shepijcanwu/graphics';
 import React from 'react';
 import DraggableProvider, { Delta, HandleFunMap, MouseEventPoint } from '../DraggableProvider';
 import { addUserSelectStyles, getSafeObjectValue, removeUserSelectStyles } from './utils';
