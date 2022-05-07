@@ -1,6 +1,6 @@
 {
   "name": "@shepijcanwu/react-draggable-provider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "provide drag data, disengage logic, common move logic",
   "keywords": [
     "react",
