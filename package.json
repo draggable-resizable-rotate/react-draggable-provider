@@ -11,7 +11,7 @@
   "license": "ISC",
   "typings": "./src/type.d.ts",
   "types": "./src/type.d.ts",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "prepare": "husky install",
     "analyze": "webpack --config ./config/webpack.config.js --env mode=production --analyze",

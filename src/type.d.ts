@@ -1,4 +1,9 @@
 declare namespace DraggableProvider {
+  interface HandleFunMap {
+    onMouseDown: (event: React.MouseEvent, delta: Delta) => void,
+    onMouseMove: (event: MouseEvent, delta: Delta) => void,
+    onMouseUp: (event: MouseEvent, delta: Delta) => void,
+  }
   interface MouseEventPoint {
     clientX: number;
     clientY: number;
