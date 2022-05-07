@@ -24,13 +24,14 @@ declare namespace DraggableProvider {
     delta: Delta
   }
 
-  export default class DraggableProvider {
-    elementRef: HTMLElement
-    state: DraggableProviderState
-    props: DraggableProviderProps
+  export default class DraggableProvider extends React.PureComponent<
+    DraggableProviderProps,
+    DraggableProviderState
+  > {
+    elementRef: HTMLElement;
   }
 }
 
 export = DraggableProvider
 export as namespace DraggableProvider
-export default DraggableProvider
+export default DraggableProvider;

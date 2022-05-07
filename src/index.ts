@@ -1,3 +1,3 @@
-import DraggableProvider from './DraggableProvider'
+import DraggableProvider from './DraggableProvider';
 
-export default DraggableProvider
+export default DraggableProvider;

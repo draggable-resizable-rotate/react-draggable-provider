@@ -98,8 +98,19 @@ const plugins = [
 ].filter(Boolean)
 
 const externals = {
-  'react': 'React',
-  'react-dom': 'ReactDOM',
+  'react': {
+    'commonjs': 'react',
+    'commonjs2': 'react',
+    'amd': 'react',
+    // React dep should be available as window.React, not window.react
+    'root': 'React'
+  },
+  'react-dom': {
+    'commonjs': 'react-dom',
+    'commonjs2': 'react-dom',
+    'amd': 'react-dom',
+    'root': 'ReactDOM'
+  }
 }
 
 module.exports = {
