@@ -1,12 +1,11 @@
 # mac上携带的文件
-.DS_Store 
+.DS_Store
 
 # node_modules 第三方依赖
 **/node_modules
 
 # build
 dist
-build
 
 # editor
 .idea

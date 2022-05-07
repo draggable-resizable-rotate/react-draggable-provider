@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 export interface HandleFunMap {
   onMouseDown: (event: React.MouseEvent, delta: Delta) => void,
   onMouseMove: (event: MouseEvent, delta: Delta) => void,
@@ -31,7 +31,7 @@ interface DraggableProviderState {
 
 class DraggableProvider extends React.PureComponent<DraggableProviderProps, DraggableProviderState> {
   constructor(props: DraggableProviderProps) {
-    super(props);
+    super(props)
     this.state = {
       delta: {
         clientX: NaN,
@@ -41,61 +41,61 @@ class DraggableProvider extends React.PureComponent<DraggableProviderProps, Drag
         lastClientX: NaN,
         lastClientY: NaN,
       },
-    };
+    }
   }
 
   get elementRef(): HTMLElement {
     if (this.props.nodeRef?.current) {
-      return this.props.nodeRef.current;
+      return this.props.nodeRef.current
     }
-    return ReactDOM.findDOMNode(this) as HTMLElement;
+    return ReactDOM.findDOMNode(this) as HTMLElement
   }
 
   onMouseDown = (event: React.MouseEvent) => {
-    const { props, elementRef, state, onMouseMove, onMouseUp } = this;
-    const { handle, allowAnyClick = false } = props;
-    const { delta } = state;
-    const element = elementRef as HTMLElement;
-    const handleElement = handle && element.querySelector(handle);
+    const { props, elementRef, state, onMouseMove, onMouseUp } = this
+    const { handle, allowAnyClick = false } = props
+    const { delta } = state
+    const element = elementRef as HTMLElement
+    const handleElement = handle && element.querySelector(handle)
     // 只允许左键点击
-    if (!allowAnyClick && typeof event.button === 'number' && event.button !== 0) return false;
+    if (!allowAnyClick && typeof event.button === 'number' && event.button !== 0) return false
 
     if (handle) {
       // 不存在元素 handle有误
       if (!handleElement) {
-        throw new Error('querySelector无法找到handle');
+        throw new Error('querySelector无法找到handle')
       }
-      let target = event.target as HTMLElement;
-      let lock = handleElement === element;
+      let target = event.target as HTMLElement
+      let lock = handleElement === element
       while (element !== target && !lock) {
         if (handleElement.contains(target)) {
-          lock = true;
+          lock = true
         }
-        target = target.parentNode as HTMLElement;
+        target = target.parentNode as HTMLElement
       }
-      if (!lock) return;
+      if (!lock) return
     }
 
-    const { ownerDocument } = element;
+    const { ownerDocument } = element
 
     const newDelta = {
       ...delta,
       clientX: event.clientX,
       clientY: event.clientY,
-    };
+    }
 
-    this.setState({ delta: newDelta });
+    this.setState({ delta: newDelta })
     // 数据保护
-    props.onMouseDown?.(event, JSON.parse(JSON.stringify(newDelta)));
+    props.onMouseDown?.(event, JSON.parse(JSON.stringify(newDelta)))
     // 绑定剩余方法
-    ownerDocument.addEventListener('mousemove', onMouseMove, false);
-    ownerDocument.addEventListener('mouseup', onMouseUp, false);
-    ownerDocument.addEventListener('mouseleave', onMouseUp, false);
-  };
+    ownerDocument.addEventListener('mousemove', onMouseMove, false)
+    ownerDocument.addEventListener('mouseup', onMouseUp, false)
+    ownerDocument.addEventListener('mouseleave', onMouseUp, false)
+  }
 
   onMouseMove = (event: MouseEvent) => {
-    const { props, state } = this;
-    const { delta } = state;
+    const { props, state } = this
+    const { delta } = state
     const newDelta: Delta = {
       clientX: event.clientX,
       clientY: event.clientY,
@@ -103,37 +103,37 @@ class DraggableProvider extends React.PureComponent<DraggableProviderProps, Drag
       changeY: event.clientY - delta.clientY,
       lastClientX: delta.clientX,
       lastClientY: delta.clientY,
-    };
+    }
     this.setState({
       delta: newDelta,
-    });
-    props.onMouseMove?.(event, JSON.parse(JSON.stringify(newDelta)));
-  };
+    })
+    props.onMouseMove?.(event, JSON.parse(JSON.stringify(newDelta)))
+  }
 
   onMouseUp = (event: MouseEvent) => {
-    const { props, state } = this;
-    const { delta } = state;
-    props.onMouseUp?.(event, JSON.parse(JSON.stringify(delta)));
-    this.unBindListener();
-  };
+    const { props, state } = this
+    const { delta } = state
+    props.onMouseUp?.(event, JSON.parse(JSON.stringify(delta)))
+    this.unBindListener()
+  }
 
   // 解绑当前节点所有绑定的方法
   unBindListener() {
-    const { elementRef, onMouseMove, onMouseUp } = this;
-    const { ownerDocument } = elementRef as HTMLElement;
-    ownerDocument.removeEventListener('mousemove', onMouseMove, false);
-    ownerDocument.removeEventListener('mouseup', onMouseUp, false);
-    ownerDocument.removeEventListener('mouseleave', onMouseUp, false);
+    const { elementRef, onMouseMove, onMouseUp } = this
+    const { ownerDocument } = elementRef as HTMLElement
+    ownerDocument.removeEventListener('mousemove', onMouseMove, false)
+    ownerDocument.removeEventListener('mouseup', onMouseUp, false)
+    ownerDocument.removeEventListener('mouseleave', onMouseUp, false)
   }
   // 渲染
   render(): React.ReactNode {
-    const { props, onMouseDown } = this;
-    const { children } = props;
-    const onlyChild = React.Children.only(children) as React.ReactElement;
+    const { props, onMouseDown } = this
+    const { children } = props
+    const onlyChild = React.Children.only(children) as React.ReactElement
     return React.cloneElement(onlyChild, {
       onMouseDown,
-    });
+    })
   }
 }
 
-export default DraggableProvider;
+export default DraggableProvider

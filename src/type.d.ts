@@ -1,5 +1,3 @@
-// import DraggableProvider from "./DraggableProvider";
-
 declare namespace DraggableProvider {
   interface MouseEventPoint {
     clientX: number;
@@ -22,9 +20,9 @@ declare namespace DraggableProvider {
   }
 
   export default class DraggableProvider {
-    elementRef: HTMLElement;
-    state: DraggableProviderState;
-    props: DraggableProviderProps;
+    elementRef: HTMLElement
+    state: DraggableProviderState
+    props: DraggableProviderProps
   }
 }
 

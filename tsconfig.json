@@ -1,6 +1,6 @@
 {
-  "exclude": ["node_modules", "config", "public", "dist", "build"],
-  "include": ["src", ".eslintrc.js", ".stylelintrc.js", ".prettierrc.js"],
+  "exclude": ["node_modules"],
+  "include": [".eslintrc.js", "webpack.config.npm.js", "src"],
   "compilerOptions": {
     "baseUrl": "./",
     "target": "es2021",
