@@ -1,7 +1,5 @@
-# React-Draggable
-
-Father Project： [react-draggable](https://github.com/react-grid-layout/react-draggable.git)
+# react-draggable-provider
 
 ## Historical background
 
-React-rnd cannot meet the rotation scenario. After checked the the source code, it is confirmed that it consists of react-draggable and re-resizable. It is found that this package needs to be modified, so the copy and rewrite of react-draggable are basically completed
+I've found that drag and transform require binding listener events in most cases. Bind mousemove、mouseup when mousedown，unbind mousemove、mouseup when mouseup。 So, I want to take that logic out of it.

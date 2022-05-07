@@ -22,6 +22,7 @@ interface DraggableProviderProps extends Partial<HandleFunMap> {
   handle?: string;
   nodeRef?: React.RefObject<HTMLElement>
   allowAnyClick?: boolean;
+  children: React.ReactElement
 }
 
 interface DraggableProviderState {
