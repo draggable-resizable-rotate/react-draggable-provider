@@ -12,6 +12,10 @@
   "typings": "./src/type.d.ts",
   "types": "./src/type.d.ts",
   "main": "./dist/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "prepare": "husky install",
     "analyze": "webpack --config ./config/webpack.config.js --env mode=production --analyze",
