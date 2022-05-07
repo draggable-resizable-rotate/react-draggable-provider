@@ -22,7 +22,8 @@
     "server": "webpack server --config ./config/webpack.config.js --env mode=development",
     "runESlint": "eslint ./src --ext .js,.jsx,.ts,.tsx,.html",
     "runStylelint": "stylelint ./src/**/*.{css,less,sass,scss,html}",
-    "runPrettierWrite": "prettier --write"
+    "runPrettierWrite": "prettier --write",
+    "publish-build": "webpack --config ./webpack.config.npm.js"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,html}": [
@@ -48,7 +49,6 @@
     ]
   },
   "dependencies": {
-    "@shepijcanwu/graphics": "^1.2.0",
     "core-js": "^3.20.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

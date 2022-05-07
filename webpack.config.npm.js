@@ -97,6 +97,11 @@ const plugins = [
   new WebpackBar(),
 ].filter(Boolean)
 
+const externals = {
+  'react': 'React',
+  'react-dom': 'ReactDOM',
+}
+
 module.exports = {
   entry,
   output,
@@ -107,5 +112,6 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.json', '.wasm']
-  }
+  },
+  externals
 }
