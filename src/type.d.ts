@@ -1,3 +1,4 @@
+import React from 'react';
 declare namespace DraggableProvider {
   interface HandleFunMap {
     onMouseDown: (event: React.MouseEvent, delta: Delta) => void,
@@ -29,6 +30,10 @@ declare namespace DraggableProvider {
     DraggableProviderState
   > {
     elementRef: HTMLElement;
+    onMouseDown: (event: React.MouseEvent) => void;
+    onMouseUp: (event: MouseEvent) => void;
+    onMouseUp: (event: MouseEvent) => void;
+    unBindListener: () => void;
   }
 }
 

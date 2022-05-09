@@ -59,7 +59,7 @@ class DraggableProvider extends React.PureComponent<
     const { props, elementRef, state, onMouseMove, onMouseUp } = this;
     const { handle, allowAnyClick = false } = props;
     const { delta } = state;
-    const element = elementRef as HTMLElement;
+    const element = elementRef;
     const handleElement = handle && element.querySelector(handle);
     // 只允许左键点击
     if (!allowAnyClick && typeof event.button === 'number' && event.button !== 0) return false;
@@ -124,7 +124,7 @@ class DraggableProvider extends React.PureComponent<
   // 解绑当前节点所有绑定的方法
   unBindListener() {
     const { elementRef, onMouseMove, onMouseUp } = this;
-    const { ownerDocument } = elementRef as HTMLElement;
+    const { ownerDocument } = elementRef;
     ownerDocument.removeEventListener('mousemove', onMouseMove, false);
     ownerDocument.removeEventListener('mouseup', onMouseUp, false);
     ownerDocument.removeEventListener('mouseleave', onMouseUp, false);
