@@ -138,6 +138,11 @@ class DraggableProvider extends React.PureComponent<
       onMouseDown,
     });
   }
+
+  // 组件卸载之前，解除事件绑定
+  componentWillUnmount() {
+    this.unBindListener();
+  }
 }
 
 export default DraggableProvider;
