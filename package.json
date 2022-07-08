@@ -27,7 +27,9 @@
     "runESlint": "eslint ./src --ext .js,.jsx,.ts,.tsx,.html",
     "runStylelint": "stylelint ./src/**/*.{css,less,sass,scss,html}",
     "runPrettierWrite": "prettier --write",
-    "pub-build": "webpack --config ./webpack.config.npm.js"
+    "pub-build": "webpack --config ./webpack.config.npm.js",
+    "pub": "npm publish --access public",
+    "patch": "npm version patch"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,html}": [
