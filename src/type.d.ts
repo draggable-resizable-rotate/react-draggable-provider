@@ -35,6 +35,10 @@ declare namespace DraggableProvider {
     onMouseUp: (event: MouseEvent) => void;
     unBindListener: () => void;
   }
+
+  function addUserSelectStyles(doc: Document): void;
+  function removeUserSelectStyles(doc: Document): void;
+  function getSafeObjectValue<T>(obj: T): T;
 }
 
 export = DraggableProvider
